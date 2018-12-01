@@ -23,6 +23,26 @@ function ContextMenu(menu, options){
 		}
 	});
 
+	// 使菜单中所有 event handler 的 this 变成鼠标右键点击的元素，而不是菜单项元素
+	passContext(this.menu);
+	function passContext(items) {
+		for (i in items) {
+			if (typeof items[i].events != 'undefined') {
+				for (e in items[i].events) {
+					if (typeof items[i].events[e] == 'function') {
+						var oldFunc = items[i].events[e];
+						items[i].events[e] = function() {
+							oldFunc.call(self.contextTarget);
+						}
+					}
+				}
+			}
+			if (items[i].sub instanceof Array) {
+				passContext(items[i].sub)
+			}
+		}
+	}
+
 	this.setOptions = function(_options){
 		if(typeof _options === "object"){
 			options = _options;
