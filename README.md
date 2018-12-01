@@ -12,6 +12,7 @@ ContextmenuJS is a simple JavaScript library, to display custom contextmenus (ri
   - [Menu structure](#menu-structure)
   - [ContextUtil](#contextutil)
   - [Options](#options)
+- [About this in the event handler](#about-this-in-the-event-handler)
 - [Example](#example)
 
 ## Installation
@@ -155,6 +156,9 @@ ContextUtil.getSizes(obj);                   // Recursively gets the size of a D
 | default_text | [string] | Sets the default text for a menu item (is overridden, when set) |
 | sub_icon | [string] | Sets the arrow icon for sub menus |
 | mouse_offset | [integer] | Sets the offset to the mouse, when opened (in pixel) |
+
+## About this in the event handler
+It points to the element which emits the 'contextmenu' event.(where you right click)
 
 ## Example
 ### Code:
