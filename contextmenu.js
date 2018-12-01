@@ -154,7 +154,8 @@ function ContextMenu(menu, options){
 		if(typeof target !== "undefined"){
 			self.contextTarget = target;
 		}else{
-			self.contextTarget = e.target;
+			// contextTarget 默认绑定至注册事件的元素
+			self.contextTarget = e.currentTarget;
 		}
 
 		var menu = document.getElementById('cm_' + num);
