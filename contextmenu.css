@@ -10,6 +10,8 @@
 .cm_container.display{
   opacity: 1;
   transform: scale(1);
+  /* 有时右键菜单需要显示在模态窗口之上 */
+  z-index: 20000;
 }
 
 .cm_container, .cm_container *{
