@@ -30,7 +30,8 @@ function ContextMenu(menu, options){
 			if (typeof items[i].events != 'undefined') {
 				for (e in items[i].events) {
 					if (typeof items[i].events[e] == 'function') {
-						var oldFunc = items[i].events[e];
+						// 这里必须用 let 而不是 var
+						let oldFunc = items[i].events[e];
 						items[i].events[e] = function() {
 							oldFunc.call(self.contextTarget);
 						}
